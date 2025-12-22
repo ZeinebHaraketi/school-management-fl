@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    /* Primary - Deep Navy Blue (Trust, Faith, Wisdom) */
+    --primary: 222 47% 20%;
+    --primary-foreground: 45 100% 96%;
+    
+    /* Gold accent (Hope, Achievement, Celebration) */
+    --accent: 43 96% 56%;
+    --accent-foreground: 222 47% 15%;
+    
+    /* Background - Warm off-white */
+    --background: 40 33% 98%;
+    --foreground: 222 47% 15%;
+
+    /* Cards - Pure white with warmth */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 15%;
+
+    /* Secondary - Soft blue-gray */
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 222 47% 20%;
+
+    /* Muted - Subtle gray */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Success - Teal for passed/eligible */
+    --success: 160 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 222 47% 20%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 15%;
+    --sidebar-foreground: 220 20% 90%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 222 47% 15%;
+    --sidebar-accent: 222 47% 25%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 222 30% 25%;
+    --sidebar-ring: 43 96% 56%;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(222 47% 20%) 0%, hsl(222 47% 30%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 96% 56%) 0%, hsl(38 92% 50%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 15%) 0%, hsl(222 47% 25%) 50%, hsl(222 47% 20%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(222 47% 15% / 0.08), 0 2px 4px -2px hsl(222 47% 15% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(222 47% 15% / 0.1), 0 4px 6px -4px hsl(222 47% 15% / 0.05);
+    --shadow-gold: 0 4px 14px 0 hsl(43 96% 56% / 0.3);
+  }
+
+  .dark {
+    --primary: 43 96% 56%;
+    --primary-foreground: 222 47% 15%;
+    
+    --accent: 43 96% 56%;
+    --accent-foreground: 222 47% 15%;
+    
+    --background: 222 47% 8%;
+    --foreground: 220 20% 95%;
+
+    --card: 222 47% 12%;
+    --card-foreground: 220 20% 95%;
+
+    --popover: 222 47% 12%;
+    --popover-foreground: 220 20% 95%;
+
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 220 20% 90%;
+
+    --muted: 222 30% 20%;
+    --muted-foreground: 220 15% 60%;
+
+    --success: 160 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 30% 22%;
+    --input: 222 30% 22%;
+    --ring: 43 96% 56%;
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 220 20% 90%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 222 47% 15%;
+    --sidebar-accent: 222 47% 15%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 43 96% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: var(--gradient-gold);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-pulse-gold {
+    animation: pulseGold 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGold {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(43 96% 56% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 10px hsl(43 96% 56% / 0);
+    }
+  }
+}
